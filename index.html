@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Console Rock Paper Scissors</title>
+    </head>
+    <body>
+    </body>
+    <script>
+        
+        let CHOICES = ['rock', 'paper', 'scissors'];
+
+        /** Function generates a random integer smaller than max.
+         * @returns {number} - random integer
+         */
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+            }
+
+        /** This function returns the computer's choice of either Rock, Paper or Scissors.
+         *  @returns {string} - the computer's choice
+         */
+        function getComputerChoice() {
+            return CHOICES[getRandomInt(3)]
+        }
+
+        console.log(getComputerChoice());
+    </script>
+</html>
