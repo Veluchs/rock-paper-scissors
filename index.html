@@ -31,25 +31,25 @@
             let computerWinString = 'You Loose! ' + + computerSelection + ' beats ' + playerSelection + '.'
 
             if (playerSelection == computerSelection) {
-                return "It's a tie!"
+                return [0, "It's a tie!"];
             }
 
             if (playerSelection == 'rock') {
-                if (computerSelection == 'scissors') return playerWinString ;
+                if (computerSelection == 'scissors') return [1, playerWinString];
                 
-                else if (computerSelection == 'paper') return computerWinString;
+                else if (computerSelection == 'paper') return [-1, computerWinString];
             }
 
             if (playerSelection == 'paper') {
-                if (computerSelection == 'rock') return playerWinString;
+                if (computerSelection == 'rock') return [1, playerWinString];
 
-                else if (computerSelection == 'scissors') return computerWinString;
+                else if (computerSelection == 'scissors') return [-1, computerWinString];
             }
 
             if (playerSelection == 'scissors') {
-                if (computerSelection == 'paper') return playerWinString;
+                if (computerSelection == 'paper') return [1, playerWinString];
 
-                else if (computerSelection == 'rock') return computerWinString;
+                else if (computerSelection == 'rock') return [-1, computerWinString];
             }
         }
 
