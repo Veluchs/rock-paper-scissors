@@ -53,5 +53,20 @@
             }
         }
 
+
+        function game() {
+            let score = 0;
+            for (let i = 0; i < 5; i++) {
+                let playerSelection = prompt('Which weapon do you wield?');
+                // TODO: Check for correct input
+                let [win, message] = playSingleRound(playerSelection, getComputerChoice());
+                console.log(message);
+                score += win;
+            }
+            console.log(score)
+        }
+
+        game()
+
     </script>
 </html>
