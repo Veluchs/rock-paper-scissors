@@ -58,7 +58,9 @@
             let score = 0;
             for (let i = 0; i < 5; i++) {
                 let playerSelection = prompt('Which weapon do you wield?');
-                // TODO: Check for correct input
+                while (!CHOICES.includes(playerSelection.toLowerCase())) {
+                    playerSelection = prompt("Be sure to use one of the following: rock, paper, scissors!")
+                }
                 let [win, message] = playSingleRound(playerSelection, getComputerChoice());
                 console.log(message);
                 score += win;
