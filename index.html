@@ -25,6 +25,32 @@
             return CHOICES[getRandomInt(3)]
         }
 
-        console.log(getComputerChoice());
+        function playSingleRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase()
+            playerWinString = 'You Win!'
+            computerWinString = 'You Loose!'
+            if (playerSelection == computerSelection) {
+                return "It's a tie!"
+            }
+
+            if (playerSelection == 'rock') {
+                if (computerSelection == 'scissors') return playerWinString;
+                
+                else if (computerSelection == 'paper') return computerWinString;
+            }
+
+            if (playerSelection == 'paper') {
+                if (computerSelection == 'rock') return playerWinString;
+
+                else if (computerSelection == 'scissors') return computerWinString;
+            }
+
+            if (playerSelection == 'scissors') {
+                if (computerSelection == 'paper') return playerWinString;
+
+                else if (computerSelection == 'rock') return computerWinString;
+            }
+        }
+
     </script>
 </html>
