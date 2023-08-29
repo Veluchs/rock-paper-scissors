@@ -27,14 +27,15 @@
 
         function playSingleRound(playerSelection, computerSelection) {
             playerSelection = playerSelection.toLowerCase()
-            playerWinString = 'You Win!'
-            computerWinString = 'You Loose!'
+            let playerWinString = 'You Win! ' + playerSelection + ' beats ' + computerSelection + '.'
+            let computerWinString = 'You Loose! ' + + computerSelection + ' beats ' + playerSelection + '.'
+
             if (playerSelection == computerSelection) {
                 return "It's a tie!"
             }
 
             if (playerSelection == 'rock') {
-                if (computerSelection == 'scissors') return playerWinString;
+                if (computerSelection == 'scissors') return playerWinString ;
                 
                 else if (computerSelection == 'paper') return computerWinString;
             }
