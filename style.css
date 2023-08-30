@@ -1,0 +1,16 @@
+body {
+    font-family: "Roboto";
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+button {
+    width: 90px;
+    height: 90px;
+}
