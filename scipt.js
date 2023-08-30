@@ -47,9 +47,10 @@ function playSingleRound(playerSelection, computerSelection) {
 }
 
 
-function announceWinner() {
+function announceWinner(winner) {
     const verbose = document.querySelector('#roundOutput');
-    verbose.textContent = 'You won! Select your weapon to play again!'
+    if (winner == 1) verbose.textContent = 'You won! Select your weapon to play again!';
+    if (winner == 0) verbose.textContent = 'You lost! Select your weapon to play again!';
 }
 
 function updateScore(winner, verboseString) {
@@ -62,7 +63,8 @@ function updateScore(winner, verboseString) {
     score.textContent = `Score: ${scoreArray[0]} : ${scoreArray[1]}`;
     verbose.textContent = verboseString;
 
-    if (scoreArray[0] == 5 || scoreArray[1] == 5) announceWinner();
+    if (scoreArray[0] == 5) announceWinner(1);
+    if (scoreArray[1] == 5) announceWinner(0);
 }
 
 const buttons = document.querySelectorAll('button');
