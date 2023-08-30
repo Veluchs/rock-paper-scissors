@@ -6,10 +6,19 @@
         <title>Console Rock Paper Scissors</title>
     </head>
     <body>
+        <div id="content">
+            <h1>Rock Paper Scissors</h1>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+            <div id="score">Score: 0 : 0</div>
+        </div>
     </body>
+
     <script>
         
         let CHOICES = ['rock', 'paper', 'scissors'];
+        let scoreArray = [0, 0];
 
         /** Function generates a random integer smaller than max.
          * @returns {number} - random integer
@@ -35,6 +44,7 @@
             }
 
             if (playerSelection == 'rock') {
+                console.log('test');
                 if (computerSelection == 'scissors') return [1, playerWinString];
                 
                 else if (computerSelection == 'paper') return [-1, computerWinString];
@@ -53,22 +63,34 @@
             }
         }
 
+        function updateScore(winner) {
+            const score = document.querySelector('#score');
+            if (winner == 1) scoreArray[0] += 1;
+            else if (winner == -1) scoreArray[1] += 1;
 
-        function game() {
-            let score = 0;
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt('Which weapon do you wield?');
-                while (!CHOICES.includes(playerSelection.toLowerCase())) {
-                    playerSelection = prompt("Be sure to use one of the following: rock, paper, scissors!")
-                }
-                let [win, message] = playSingleRound(playerSelection, getComputerChoice());
-                console.log(message);
-                score += win;
-            }
-            console.log(score)
+            score.textContent = `Score: ${scoreArray[0]} ${scoreArray[1]}`
         }
 
-        game()
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(element => {
+            element.addEventListener('click', () => playSingleRound(element.id, getComputerChoice()));
+        });
+
+        // function game() {
+        //     let score = 0;
+        //     for (let i = 0; i < 5; i++) {
+        //         let playerSelection = prompt('Which weapon do you wield?');
+        //         while (!CHOICES.includes(playerSelection.toLowerCase())) {
+        //             playerSelection = prompt("Be sure to use one of the following: rock, paper, scissors!")
+        //         }
+        //         let [win, message] = playSingleRound(playerSelection, getComputerChoice());
+        //         console.log(message);
+        //         score += win;
+        //     }
+        //     console.log(score)
+        // }
+
+        // game()
 
     </script>
 </html>
